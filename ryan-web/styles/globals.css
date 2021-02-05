@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.row {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+div [class*="col"] {
+  padding-left: 5px;
+  padding-right: 5px;
+}
