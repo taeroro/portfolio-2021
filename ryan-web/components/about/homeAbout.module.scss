@@ -1,23 +1,16 @@
+@use 'styles/fonts';
+@use 'styles/colors';
+@use 'styles/media';
+
 .aboutContainer {
   height: 70vh;
   padding: 0 20px;
 
-
   h1 {
-    font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-    font-weight: 200;
-    font-size: 64px;
-    margin: 0;
+    @include fonts.h1;
   }
 }
 
 .linkText {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
-  font-size: 24px;
-  text-decoration: underline;
+  @include fonts.moreLinks;
 }
