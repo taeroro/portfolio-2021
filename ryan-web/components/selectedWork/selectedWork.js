@@ -16,4 +16,12 @@ const SelectedWork = (props) => {
   )
 }
 
+const SelectedWorkSingle = (work) => {
+  return (
+    <div>
+      
+    </div>
+  );
+}
+
 export default SelectedWork
