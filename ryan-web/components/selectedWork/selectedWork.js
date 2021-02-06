@@ -1,4 +1,5 @@
 import styles from './selectedWork.module.scss'
+import Link from 'next/link'
 
 const SelectedWork = (props) => {
   const {
@@ -32,7 +33,7 @@ const SelectedWorkSingle = (props) => {
     category,
     thumbnail
   } = props.work.fields
-  
+
   const thumbnailURL = thumbnail.fields.file.url
 
   return (

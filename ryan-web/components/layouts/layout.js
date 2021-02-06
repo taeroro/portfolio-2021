@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Nav from './nav/nav'
 
-const Layout = ({ children }) => {
+import Filler from './footer/filler'
+import Contact from './footer/contact'
+
+const Layout = ({ contact, children }) => {
   return (
     <div>
       {/* <SEO meta={meta} /> */}
@@ -14,9 +17,21 @@ const Layout = ({ children }) => {
         <link rel="stylesheet" href="https://use.typekit.net/dqj0nwi.css" />
       </Head>
 
-      <Nav />
+      <div style={{
+        backgroundColor: "white",
+        zIndex: 2,
+        position: "relative"
+      }}>
 
-      {children}
+        <Nav />
+
+        {children}
+
+      </div>
+
+      <Filler />
+
+      <Contact contact={contact} />
 
     </div>
   )

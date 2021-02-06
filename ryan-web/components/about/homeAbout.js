@@ -1,9 +1,13 @@
 import styles from './homeAbout.module.scss'
+import Link from 'next/link'
 
 const HomeAbout = (props) => {
   const {
-    homeAbout
+    homeAbout,
+    myDude
   } = props
+
+  const normalDudeUrl = myDude.media[0].fields.file.url;
 
   return (
     <div className={styles.aboutContainer}>
@@ -16,11 +20,13 @@ const HomeAbout = (props) => {
         </div>
 
         <div className="col-lg-3">
-          PLACEHOLDER
+          <div className={styles.dudeContainer}>
+            <img src={normalDudeUrl} />
+          </div>
         </div>
       </div>
 
-      <div className="row">
+      <div className={styles.moreAboutRow + " row"}>
         <div className="col-lg-12">
           <span className={styles.linkText + " float-right"}>More About Me →</span>
         </div>
