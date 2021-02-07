@@ -13,7 +13,7 @@ const SelectedWork = (props) => {
       <div className="row">
         <div className="col-lg-12">
           <hr className={styles.customizeHr} />
-          <span className={styles.title}>{subtitle}</span>
+          <span className={styles.title}>{subtitle + " ↓"}</span>
         </div>
       </div>
 
@@ -43,18 +43,8 @@ const SelectedWorkSingle = (props) => {
         <div className="col-lg-12">
 
           <div className={styles.topWrapper}>
-              <h2>{title}</h2>
+              <h1>{title}</h1>
               <span>{highlightDescription}</span>
-          </div>
-
-          <div className={styles.bottomWrapper}>
-            <div className={styles.tagsWrapper}>
-              {
-                category.map((e, i) => <span key={i}>{e}</span>)
-              }
-            </div>
-
-            <a href="">Learn More →</a>
           </div>
 
         </div>

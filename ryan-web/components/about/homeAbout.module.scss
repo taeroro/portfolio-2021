@@ -3,16 +3,12 @@
 @use 'styles/media';
 
 .aboutContainer {
-  height: 75vh;
+  height: 80vh;
   padding: 0 20px;
 
   h1 {
     @include fonts.h1;
   }
-}
-
-.linkText {
-  @include fonts.moreLinks;
 }
 
 .dudeContainer {
@@ -27,8 +23,4 @@
     width: 100%;
     height: auto;
   }
-}
-
-.moreAboutRow {
-  margin-top: 20px;
 }

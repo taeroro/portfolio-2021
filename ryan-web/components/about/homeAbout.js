@@ -25,13 +25,6 @@ const HomeAbout = (props) => {
           </div>
         </div>
       </div>
-
-      <div className={styles.moreAboutRow + " row"}>
-        <div className="col-lg-12">
-          <span className={styles.linkText + " float-right"}>More About Me →</span>
-        </div>
-      </div>
-
     </div>
   )
 }
