@@ -4,7 +4,7 @@ import Nav from './nav/nav'
 import Filler from './footer/filler'
 import Contact from './footer/contact'
 
-const Layout = ({ contact, children }) => {
+const Layout = ({ contact, myDude, children }) => {
   return (
     <div>
       {/* <SEO meta={meta} /> */}
@@ -18,12 +18,18 @@ const Layout = ({ contact, children }) => {
       </Head>
 
       <div style={{
-        backgroundColor: "white",
+        backgroundColor: "#FFF",
         zIndex: 2,
         position: "relative"
       }}>
 
         <Nav />
+
+        <div style={{
+          width: "100vw",
+          height: "69px",
+          position: "relative"
+        }} />
 
         {children}
 
@@ -31,7 +37,7 @@ const Layout = ({ contact, children }) => {
 
       <Filler />
 
-      <Contact contact={contact} />
+      <Contact contact={contact} myDude={myDude} />
 
     </div>
   )

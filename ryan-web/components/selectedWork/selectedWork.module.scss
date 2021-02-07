@@ -22,6 +22,15 @@
 .singleWorkContainer {
   padding: 50px 0;
 
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
+  .colWrapper {
+    cursor: pointer;
+  }
+
   .topWrapper {
     margin-bottom: 20px;
 

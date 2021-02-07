@@ -40,20 +40,18 @@ const SelectedWorkSingle = (props) => {
     <div className={styles.singleWorkContainer}>
 
       <div className="row">
-        <div className="col-lg-12">
+        <Link href={"/work/" + slug}>
 
-          <div className={styles.topWrapper}>
-              <h1>{title}</h1>
-              <span>{highlightDescription}</span>
+          <div className={styles.colWrapper + " col-lg-8"}>
+            <div className={styles.topWrapper}>
+                <h1>{title}</h1>
+                <span>{highlightDescription}</span>
+            </div>
+
+            <img className={styles.thumbnailImg} src={thumbnailURL} />
           </div>
 
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col-xl-8">
-          <img className={styles.thumbnailImg} src={thumbnailURL} />
-        </div>
+        </Link>
       </div>
 
     </div>

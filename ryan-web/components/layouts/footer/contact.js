@@ -7,12 +7,22 @@ const Contact = (props) => {
     social
   } = props.contact
 
+  const {
+    myDude
+  } = props
+
+  const normalDudeUrl = myDude.media[1].fields.file.url;
+
   return (
     <div className={styles.contactContainer}>
-      <h2>{name}</h2>
-      <div className={styles.emailLinkWrapper}>
-        <h2><a href={"mailto:" + email}>{email}</a></h2>
-        <hr />
+
+      <div className={styles.topWrapper}>
+        <img src={normalDudeUrl} />
+        <h2>{name}</h2>
+        <div className={styles.emailLinkWrapper}>
+          <h2><a href={"mailto:" + email}>{email}</a></h2>
+          <hr />
+        </div>
       </div>
 
       <div className={styles.socialLinkWrapper}>

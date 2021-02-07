@@ -15,6 +15,18 @@
 
   background-color: colors.$black;
 
+  .topWrapper {
+    text-align: center;
+    padding-bottom: 10vh;
+  }
+
+  img {
+    width: 160px;
+    height: 160px;
+
+    margin-bottom: 20px;
+  }
+
   h2 {
     @include fonts.h2;
     color: colors.$white;
@@ -24,7 +36,8 @@
     margin-top: 1rem;
 
     a {
-      text-decoration: none;
+      color: inherit; /* blue colors for links too */
+      text-decoration: inherit; /* no underline */
     }
 
     hr {

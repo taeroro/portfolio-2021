@@ -7,7 +7,7 @@ const HomeAbout = (props) => {
     myDude
   } = props
 
-  const normalDudeUrl = myDude.media[0].fields.file.url;
+  let normalDudeUrl = myDude.media[0].fields.file.url;
 
   return (
     <div className={styles.aboutContainer}>

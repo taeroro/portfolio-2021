@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { ContentfulAPI } from '../utils/contentful'
 
@@ -12,7 +11,7 @@ export default function Home({ page, workList, contact, myDude }) {
   } = page
 
   return (
-    <Layout contact={contact}>
+    <Layout contact={contact} myDude={myDude}>
       <HomeAbout homeAbout={homeAbout} myDude={myDude} />
       <SelectedWork workList={workList} />
     </Layout>
