@@ -39,6 +39,16 @@ export async function getServerSideProps() {
     }
   } catch (e) {
     e = JSON.stringify(e);
+    console.error("index");
     console.error(e);
+
+    return {
+      props: {
+        page: {}
+        workList: {}
+        contact: {}
+        myDude: {}
+      }
+    }
   }
 }

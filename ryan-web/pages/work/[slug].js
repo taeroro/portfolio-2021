@@ -7,11 +7,15 @@ export default function WorkDetailPage ({ workList, myDude, contact }) {
   const router = useRouter()
   const slug = router.query.slug;
 
+  // return (
+  //   <Layout contact={contact} myDude={myDude}>
+  //     <WorkDetail workList={workList} slug={slug} />
+  //   </Layout>
+  // );
+
   return (
-    <Layout contact={contact} myDude={myDude}>
-      <WorkDetail workList={workList} slug={slug} />
-    </Layout>
-  );
+    <div></div>
+  )
 }
 
 
@@ -47,6 +51,15 @@ export async function getStaticProps() {
     }
   } catch (e) {
     e = JSON.stringify(e);
+    console.error("slug");
     console.error(e);
+
+    return {
+      props: {
+        workList: {},
+        myDude: {},
+        contact: {}
+      }
+    }
   }
 }
