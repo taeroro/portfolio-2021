@@ -5,12 +5,14 @@ import Layout from '../components/layouts/layout'
 import HomeAbout from '../components/about/homeAbout'
 import SelectedWork from '../components/selectedWork/selectedWork'
 
-export default function Home({ page, workList, contact, myDude }) {
+export default function Home({ page, workList, contact, myDude, test }) {
   const {
     // homeAbout
   } = page
 
-    const homeAbout = "Ryan Fan is a UI/UX Designer and Creative Technologist helping humans understand machines better.";
+  const homeAbout = "Ryan Fan is a UI/UX Designer and Creative Technologist helping humans understand machines better.";
+
+  console.log(test);
 
   return (
     <Layout contact={contact} myDude={myDude}>
@@ -21,18 +23,22 @@ export default function Home({ page, workList, contact, myDude }) {
 }
 
 export async function getServerSideProps() {
-  const data0 = await ContentfulAPI.getEntries({ content_type:'home' })
+  // const data0 = await ContentfulAPI.getEntries({ content_type: 'home' })
   // const data1 = await ContentfulAPI.getEntries({ 'content_type':'workList' })
   // const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
   // const data3 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
-  const home = data0.items[0].fields
+  // const home = data0.items[0].fields
   // const workList = data1.items[0].fields
   // const contact = data2.items[0].fields
   // const myDude = data3.items[0].fields
 
+  const data0 = await ContentfulAPI.getEntries()
+
+
   return {
     props: {
-      page: home,
+      page: {},
+      test: data0,
       workList: tempWorkList,
       contact: tempContact,
       myDude: tempMyDude
