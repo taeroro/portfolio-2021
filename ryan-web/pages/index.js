@@ -38,6 +38,7 @@ export async function getServerSideProps() {
       }
     }
   } catch (e) {
+    e = JSON.stringify(e);
     console.error(e);
   }
 }

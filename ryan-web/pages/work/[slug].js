@@ -46,6 +46,7 @@ export async function getStaticProps() {
       }
     }
   } catch (e) {
+    e = JSON.stringify(e);
     console.error(e);
   }
 }
