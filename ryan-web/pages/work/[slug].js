@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList', include: 3 })
+  const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList', 'include': 3 })
   const data1 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
   const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
   const workList = data0.items[0].fields
