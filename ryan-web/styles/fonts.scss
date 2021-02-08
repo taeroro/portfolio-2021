@@ -18,6 +18,7 @@ $ProximaNova: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Segoe UI, Robot
   font-family: $ProximaNova;
   font-weight: 400;
   font-size: 18px;
+  line-height: 1.6;
   text-rendering: geometricPrecision;
 }
 
@@ -74,4 +75,12 @@ $ProximaNova: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Segoe UI, Robot
 
   font-weight: 400;
   font-size: 16px;
+}
+
+@mixin workLeftP {
+  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  font-weight: 400;
+  font-size: 18px;
 }

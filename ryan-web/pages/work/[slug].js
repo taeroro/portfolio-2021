@@ -1,17 +1,15 @@
-import styles from '../../styles/workDetail.module.scss'
 import { ContentfulAPI } from '../../utils/contentful'
 import { useRouter } from 'next/router'
-
 import Layout from '../../components/layouts/layout'
+import WorkDetail from '../../components/selectedWork/workDetail'
 
-export default function WorkDetail ({ workList, myDude, contact }) {
+export default function WorkDetailPage ({ workList, myDude, contact }) {
   const router = useRouter()
+  const slug = router.query.slug;
 
   return (
     <Layout contact={contact} myDude={myDude}>
-      <div className={styles.workDetailContainer}>
-        WDP
-      </div>
+      <WorkDetail workList={workList} slug={slug} />
     </Layout>
   );
 }
@@ -32,7 +30,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList' })
+  const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList', include: 3 })
   const data1 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
   const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
   const workList = data0.items[0].fields

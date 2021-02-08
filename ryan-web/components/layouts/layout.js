@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Nav from './nav/nav'
-
 import Filler from './footer/filler'
 import Contact from './footer/contact'
+import { useRouter } from 'next/router'
 
 const Layout = ({ contact, myDude, children }) => {
+  const router = useRouter()
+
   return (
     <div>
       {/* <SEO meta={meta} /> */}
@@ -25,11 +27,15 @@ const Layout = ({ contact, myDude, children }) => {
 
         <Nav />
 
-        <div style={{
-          width: "100vw",
-          height: "69px",
-          position: "relative"
-        }} />
+        {
+          !router.pathname.includes("work") && (
+            <div style={{
+              width: "100vw",
+              height: "69px",
+              position: "relative"
+            }} />
+          )
+        }
 
         {children}
 
