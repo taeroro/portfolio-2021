@@ -1,6 +1,6 @@
 import { createClient } from 'contentful'
 
-const IS_PRODUCTION = process.env.VERCEL_GIT_COMMIT_REF === 'main'
+const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF === 'main'
 
 export const ContentfulAPI = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
