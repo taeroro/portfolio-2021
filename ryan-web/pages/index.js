@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css'
-import { ContentfulAPI } from '../utils/contentful'
+// import { ContentfulAPI } from '../utils/contentful'
 
 import Layout from '../components/layouts/layout'
 import HomeAbout from '../components/about/homeAbout'
