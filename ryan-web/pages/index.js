@@ -13,7 +13,7 @@ export default function Home({ page, workList, contact, myDude }) {
   return (
     <Layout contact={contact} myDude={myDude}>
       <HomeAbout homeAbout={homeAbout} myDude={myDude} />
-      <SelectedWork workList={workList} />
+      {/* <SelectedWork workList={workList} /> */}
     </Layout>
   )
 }
