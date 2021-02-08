@@ -32,6 +32,11 @@ const WorkDetail = (props) => {
       <Content
         content = {work.workContent}
       />
+      {
+        work.isRequestedViaEmail &&
+        <RequestCase />
+      }
+      <BackWithDude />
     </div>
   )
 }
@@ -271,6 +276,55 @@ const ContentDetail = (props) => {
 
   return (
     <div></div>
+  );
+}
+
+
+// ************************
+// REQUEST CASE STUDY BY EMAIL
+// ************************
+const RequestCase = () => {
+  return (
+    <div className={styles.requestCaseContainer + " row"}>
+      <div className="col-lg-12">
+        Full case study available on request via <a href="mailto:hello@ryanfandesign.com">email</a>.
+      </div>
+    </div>
+  );
+}
+
+
+// ************************
+// REQUEST CASE STUDY BY EMAIL
+// ************************
+const BackWithDude = () => {
+  return (
+    <div className={styles.backWithDudeContainer}>
+      <hr className={styles.shortHr} />
+
+      <div className="row">
+
+        <div className="col-lg-1"></div>
+
+        <div className="col-lg-2">
+          <span>PREVIOUS PROJECT</span>
+        </div>
+
+        <div className="col-lg-2"></div>
+
+        <div className="col-lg-2">
+          <span>TAKE ME BACK TO HOME</span>
+        </div>
+
+        <div className="col-lg-2"></div>
+
+        <div className="col-lg-2">
+          <span>NEXT PROJECT</span>
+        </div>
+
+        <div className="col-lg-1"></div>
+      </div>
+    </div>
   );
 }
 
