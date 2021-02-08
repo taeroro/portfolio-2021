@@ -44,9 +44,9 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        page: {}
-        workList: {}
-        contact: {}
+        page: {},
+        workList: {},
+        contact: {},
         myDude: {}
       }
     }
