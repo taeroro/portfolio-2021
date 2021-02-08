@@ -20,7 +20,7 @@ const Layout = ({ contact, myDude, children }) => {
       </Head>
 
       <div style={{
-        backgroundColor: "#FFF",
+        backgroundColor: "#F9f9f9",
         zIndex: 2,
         position: "relative"
       }}>
