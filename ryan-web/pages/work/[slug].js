@@ -7,11 +7,15 @@ export default function WorkDetailPage ({ workList, myDude, contact }) {
   const router = useRouter()
   const slug = router.query.slug;
 
+  // return (
+  //   <Layout contact={contact} myDude={myDude}>
+  //     <WorkDetail workList={workList} slug={slug} />
+  //   </Layout>
+  // );
+
   return (
-    <Layout contact={contact} myDude={myDude}>
-      <WorkDetail workList={workList} slug={slug} />
-    </Layout>
-  );
+    <div></div>
+  )
 }
 
 
@@ -30,12 +34,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList', 'include': 3 })
-  const data1 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
-  const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
-  const workList = data0.items[0].fields
-  const myDude = data1.items[0].fields
-  const contact = data2.items[0].fields
+  // const data0 = await ContentfulAPI.getEntries({ 'content_type':'workList', 'include': 3 })
+  // const data1 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
+  // const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
+  // const workList = data0.items[0].fields
+  // const myDude = data1.items[0].fields
+  // const contact = data2.items[0].fields
+
+  const workList = {}
+  const myDude = {}
+  const contact = {}
 
   return {
     props: {
