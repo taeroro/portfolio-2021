@@ -1,4 +1,4 @@
-// import { ContentfulAPI } from '../../utils/contentful'
+import { ContentfulAPI } from '../../utils/contentful'
 import { useRouter } from 'next/router'
 import Layout from '../../components/layouts/layout'
 import WorkDetail from '../../components/selectedWork/workDetail'
