@@ -10,6 +10,8 @@ export default function Home({ page, workList, contact, myDude }) {
     // homeAbout
   } = page
 
+  console.log(page);
+
   const homeAbout = "Ryan Fan is a UI/UX Designer and Creative Technologist helping humans understand machines better.";
 
   return (
@@ -23,6 +25,16 @@ export default function Home({ page, workList, contact, myDude }) {
 export async function getServerSideProps() {
   try {
     const data0 = await ContentfulAPI.getEntries({ 'content_type': 'home' })
+    const home = data0.items[0].fields
+
+    return {
+      props: {
+        page: home
+        workList: tempWorkList,
+        contact: tempContact,
+        myDude: tempMyDude
+      }
+    }
   } catch(e) {
     console.error(JSON.stringify(e));
   }
