@@ -21,7 +21,12 @@ export default function Home({ page, workList, contact, myDude }) {
 }
 
 export async function getServerSideProps() {
-  const data0 = await ContentfulAPI.getEntries({ 'content_type': 'home' })
+  try {
+    const data0 = await ContentfulAPI.getEntries({ 'content_type': 'home' })
+  } catch(e) {
+    console.error(JSON.stringify(e));
+  }
+  // const data0 = await ContentfulAPI.getEntries({ 'content_type': 'home' })
   // const data1 = await ContentfulAPI.getEntries({ 'content_type':'workList' })
   // const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
   // const data3 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
