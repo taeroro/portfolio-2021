@@ -29,7 +29,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        page: home
+        page: home,
         workList: tempWorkList,
         contact: tempContact,
         myDude: tempMyDude
