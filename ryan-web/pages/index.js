@@ -5,14 +5,12 @@ import Layout from '../components/layouts/layout'
 import HomeAbout from '../components/about/homeAbout'
 import SelectedWork from '../components/selectedWork/selectedWork'
 
-export default function Home({ page, workList, contact, myDude, test }) {
+export default function Home({ page, workList, contact, myDude }) {
   const {
     // homeAbout
   } = page
 
   const homeAbout = "Ryan Fan is a UI/UX Designer and Creative Technologist helping humans understand machines better.";
-
-  console.log(test);
 
   return (
     <Layout contact={contact} myDude={myDude}>
@@ -22,8 +20,8 @@ export default function Home({ page, workList, contact, myDude, test }) {
   )
 }
 
-export async function getServerSideProps() {
-  // const data0 = await ContentfulAPI.getEntries({ content_type: 'home' })
+export async function getStaticProps() {
+  const data0 = await ContentfulAPI.getEntries({ content_type: 'home' })
   // const data1 = await ContentfulAPI.getEntries({ 'content_type':'workList' })
   // const data2 = await ContentfulAPI.getEntries({ 'content_type':'contact' })
   // const data3 = await ContentfulAPI.getEntries({ 'content_type':'myDude' })
@@ -32,13 +30,10 @@ export async function getServerSideProps() {
   // const contact = data2.items[0].fields
   // const myDude = data3.items[0].fields
 
-  const data0 = await ContentfulAPI.getEntries()
-
 
   return {
     props: {
       page: {},
-      test: data0,
       workList: tempWorkList,
       contact: tempContact,
       myDude: tempMyDude
