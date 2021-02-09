@@ -36,12 +36,16 @@ export async function getServerSideProps() {
       }
     }
   } catch(e) {
-    console.error(JSON.stringify(e));
-    props: {
-      page: JSON.stringify(e),
-      workList: tempWorkList,
-      contact: tempContact,
-      myDude: tempMyDude
+    const ee = JSON.stringify(e);
+
+    console.error(ee);
+    return {
+      props: {
+        page: ee,
+        workList: tempWorkList,
+        contact: tempContact,
+        myDude: tempMyDude
+      }
     }
   }
   // const data0 = await ContentfulAPI.getEntries({ 'content_type': 'home' })
