@@ -47,10 +47,14 @@
   }
 
   .thumbnailImg {
-    width: 100%;
-    height: 70vh;
+    width: 100% !important;
+    height: 70vh !important;
     max-height: 650px;
     min-height: 400px;
     object-fit: cover;
+
+    video {
+      object-fit: cover;
+    }
   }
 }

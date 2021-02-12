@@ -1,5 +1,6 @@
 import styles from './selectedWork.module.scss'
 import Link from 'next/link'
+import ReactPlayer from 'react-player';
 
 const SelectedWork = (props) => {
   const {
@@ -51,7 +52,14 @@ const SelectedWorkSingle = (props) => {
             {
               thumbnail.fields.file.contentType.includes("video")
               ? (
-                
+               <ReactPlayer
+                 className={styles.thumbnailImg}
+                 url={thumbnailURL}
+                 playing={true}
+                 loop={true}
+                 muted={true}
+                 playsinline={true}
+               />
               )
               : <img className={styles.thumbnailImg} src={thumbnailURL} />
             }

@@ -1,4 +1,5 @@
 import styles from './workDetail.module.scss'
+import ReactPlayer from 'react-player';
 
 const WorkDetail = (props) => {
   const {
@@ -17,20 +18,20 @@ const WorkDetail = (props) => {
     <div className={styles.workDetailContainer}>
       <Hero
         title={work.title}
-        thumbnail={work.thumbnail.fields.file.url}
+        thumbnail={work.thumbnail.fields.file}
       />
       <Overview
-        highlightDescription = {work.highlightDescription}
-        fullDescription = {work.fullDescription}
-        role = {work.role}
-        category = {work.category}
-        collaborators = {work.collaborators}
-        deliverables = {work.deliverables}
-        projectLink = {work.projectLink}
-        medium = {work.medium}
+        highlightDescription={work.highlightDescription}
+        fullDescription={work.fullDescription}
+        role={work.role}
+        category={work.category}
+        collaborators={work.collaborators}
+        deliverables={work.deliverables}
+        projectLink={work.projectLink}
+        medium={work.medium}
       />
       <Content
-        content = {work.workContent}
+        content={work.workContent}
       />
       {
         work.isRequestedViaEmail &&
@@ -60,7 +61,23 @@ const Hero = (props) => {
         </div>
 
         <div className="col-lg-8">
-          <img src={thumbnail} alt="thumbnail" />
+          {
+            thumbnail.contentType.includes("video")
+            ? (
+             <ReactPlayer
+               className={styles.thumbnailVid}
+               url={thumbnail.url}
+               width={'100%'}
+               height={'100%'}
+               playing={true}
+               loop={true}
+               controls={false}
+               muted={true}
+               playsinline={true}
+             />
+            )
+            : <img src={thumbnail.url} alt="thumbnail" />
+          }
         </div>
       </div>
 
@@ -183,6 +200,8 @@ const Content = (props) => {
     content
   } = props
 
+  if (!content) return (<div></div>)
+
   return (
     <div>
       {
@@ -246,7 +265,12 @@ const ContentDetail = (props) => {
           }
           {
             data.media &&
-            <img className={data.outline ? styles.outline : ""} src={data.media.fields.file.url} alt={data.media.fields.title} />
+            <img
+              className={data.outline ? styles.outline : ""}
+              src={data.media.fields.file.url}
+              alt={data.media.fields.title}
+              style={data.isContained && {objectFit: "contain"}}
+            />
           }
         </div>
       )
@@ -259,7 +283,7 @@ const ContentDetail = (props) => {
 
       if (sizeSum === 12) {
         toDisplay.push(
-          <div className="row" key={"display-" + i}>
+          <div className="row" key={"display-" + i} style={{marginBottom: data.spacingBottom + "px"}}>
             {tempDisplay}
           </div>
         )
