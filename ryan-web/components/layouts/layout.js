@@ -2,10 +2,20 @@ import Head from 'next/head'
 import Nav from './nav/nav'
 import Filler from './footer/filler'
 import Contact from './footer/contact'
+import { useEffect } from "react";
 import { useRouter } from 'next/router'
+
+import SmoothScroll from 'smooth-scroll/dist/smooth-scroll'
 
 const Layout = ({ contact, myDude, children }) => {
   const router = useRouter()
+
+  useEffect(() => {
+      let scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 300,
+        easing: 'easeInOutQuart',
+      });
+    });
 
   return (
     <div>

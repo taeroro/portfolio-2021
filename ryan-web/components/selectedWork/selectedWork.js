@@ -9,7 +9,7 @@ const SelectedWork = (props) => {
   } = props.workList
 
   return (
-    <div className={styles.workContainer}>
+    <div className={styles.workContainer} id="selected-work">
 
       <div className="row">
         <div className="col-lg-12">

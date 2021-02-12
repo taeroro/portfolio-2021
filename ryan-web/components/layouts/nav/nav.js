@@ -12,11 +12,11 @@ const Nav = (props) => {
 
       <div className={styles.navLinkWrapper}>
         <div className={styles.linkWrapper}>
-          <a href="/">Work</a>
+          <a href="/#selected-work">Work</a>
         </div>
 
         <div className={styles.linkWrapper}>
-          <a href="/">Contact</a>
+          <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
