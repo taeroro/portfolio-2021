@@ -63,8 +63,7 @@ const Hero = (props) => {
         <div className="col-lg-8">
           {
             thumbnail.contentType.includes("video")
-            ? (
-             <ReactPlayer
+            ? <ReactPlayer
                className={styles.thumbnailVid}
                url={thumbnail.url}
                width={'100%'}
@@ -75,7 +74,6 @@ const Hero = (props) => {
                muted={true}
                playsinline={true}
              />
-            )
             : <img src={thumbnail.url} alt="thumbnail" />
           }
         </div>

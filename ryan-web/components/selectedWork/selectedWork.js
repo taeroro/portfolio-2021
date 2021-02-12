@@ -51,8 +51,7 @@ const SelectedWorkSingle = (props) => {
 
             {
               thumbnail.fields.file.contentType.includes("video")
-              ? (
-               <ReactPlayer
+              ? <ReactPlayer
                  className={styles.thumbnailImg}
                  url={thumbnailURL}
                  playing={true}
@@ -60,7 +59,6 @@ const SelectedWorkSingle = (props) => {
                  muted={true}
                  playsinline={true}
                />
-              )
               : <img className={styles.thumbnailImg} src={thumbnailURL} />
             }
           </div>
