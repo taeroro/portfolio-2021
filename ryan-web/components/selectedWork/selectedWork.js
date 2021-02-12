@@ -48,7 +48,13 @@ const SelectedWorkSingle = (props) => {
                 <span>{highlightDescription}</span>
             </div>
 
-            <img className={styles.thumbnailImg} src={thumbnailURL} />
+            {
+              thumbnail.fields.file.contentType.includes("video")
+              ? (
+                
+              )
+              : <img className={styles.thumbnailImg} src={thumbnailURL} />
+            }
           </div>
 
         </Link>

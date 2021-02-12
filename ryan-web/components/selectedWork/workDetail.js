@@ -246,7 +246,7 @@ const ContentDetail = (props) => {
           }
           {
             data.media &&
-            <img src={data.media.fields.file.url} alt={data.media.fields.title} />
+            <img className={data.outline ? styles.outline : ""} src={data.media.fields.file.url} alt={data.media.fields.title} />
           }
         </div>
       )
@@ -313,7 +313,7 @@ const BackWithDude = () => {
         <div className="col-lg-2"></div>
 
         <div className="col-lg-2">
-          <span>TAKE ME BACK TO HOME</span>
+          <span>TAKE ME BACK HOME</span>
         </div>
 
         <div className="col-lg-2"></div>

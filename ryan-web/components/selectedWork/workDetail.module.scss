@@ -15,7 +15,7 @@
 // ************************
 .heroContainer {
   width: 100vw;
-  height: 85vh;
+  height: calc(85vh + 69px);
   margin: 0 -20px;
   padding: 0 0 0 20px;
   position: relative;
@@ -105,7 +105,8 @@
   .customizedMediaCol {
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
 
     .videoWrapper {
@@ -124,6 +125,10 @@
 
     .vidMobile {
       padding: 100% 0 !important;
+    }
+
+    .outline {
+      border: 1px solid rgba(0,0,0,.1);
     }
   }
 }
