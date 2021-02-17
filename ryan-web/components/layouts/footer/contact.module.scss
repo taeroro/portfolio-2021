@@ -62,6 +62,11 @@
         @include fonts.borderLinks;
         color: colors.$white;
       }
+
+      @include media.onMd {
+        padding: 1px 8px;
+        margin: 0 5px;
+      }
     }
   }
 }

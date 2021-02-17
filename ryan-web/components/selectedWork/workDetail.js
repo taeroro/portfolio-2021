@@ -239,6 +239,8 @@ const ContentDetail = (props) => {
     containsGap,
     heading,
     textContent,
+    link,
+    linkText,
   } = detail
 
   let toDisplay = [];
@@ -412,6 +414,98 @@ const ContentDetail = (props) => {
     return toDisplay;
   }
   // text-horizontal-stacked type END
+  // text-and-video type START
+  else if (type === "text-and-video") {
+    let sizeSum = 0;
+    let spacing = 0;
+
+    media.map((e, i) => {
+      const data = e.fields;
+
+      if (data.spacingBottom && data.spacingBottom !== 0) {
+        spacing = data.spacingBottom;
+      }
+
+      if (sizeSum === 0 && containsGap) {
+        tempDisplay.push(<div className="col-lg-1"></div>)
+        sizeSum += 1;
+      }
+
+      tempDisplay.push(
+        <div className={styles.customizedMediaCol + " col-lg-" + data.size}>
+          {
+            data.mediaLink &&
+            <ReactPlayer
+               // className={styles.thumbnailVid}
+               url={data.mediaLink}
+               width={'100%'}
+               height={'100%'}
+               config={{
+                vimeo: {
+                  playerOptions: {
+                    autoplay: true,
+                    loop: true,
+                    responsive: true,
+                    muted: true,
+                    title: false,
+                  }
+                }
+              }}
+             />
+          }
+          {
+            (data.videoTitle || data.videoDescription) &&
+            <div className={styles.videoTextContainer}>
+              {
+                data.videoTitle &&
+                <h3>{data.videoTitle}</h3>
+              }
+              {
+                data.videoDescription &&
+                <p>{documentToReactComponents(data.videoDescription)}</p>
+              }
+            </div>
+          }
+        </div>
+      )
+      sizeSum += parseInt(data.size);
+
+      if (sizeSum === 11 && containsGap) {
+        tempDisplay.push(<div className="col-lg-1"></div>)
+        sizeSum += 1;
+      }
+
+      if (sizeSum === 12) {
+        toDisplay.push(
+          <div className="row" key={"display-" + i} style={{marginBottom: spacing + "px"}}>
+            {tempDisplay}
+          </div>
+        )
+        sizeSum = 0;
+        tempDisplay = [];
+      }
+    })
+
+
+    return toDisplay;
+  }
+  // text-and-video type END
+  // link-only type START
+  else if (type === "link-only") {
+    console.log();
+
+    return (
+      <div className={styles.requestCaseContainer + " row"}>
+        <div className="col-lg-1"></div>
+        <div className="col-lg-10">
+          <a href={link} target="_blank" rel="noopener noreferrer">{linkText}</a>
+        </div>
+        <div className="col-lg-1"></div>
+      </div>
+    );
+  }
+  // link-only type END
+
 
   return (
     <div></div>

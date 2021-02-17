@@ -46,6 +46,11 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   letter-spacing: 0.9px;
   text-transform: uppercase;
   text-rendering: geometricPrecision;
+
+  @include media.onLg {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
 }
 
 @mixin p {
@@ -71,6 +76,22 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   font-size: 4vw;
   line-height: 1.42;
   margin: 0;
+
+  @include media.onXl {
+    font-size: 4.5vw;
+  }
+  @include media.onLg {
+    font-size: 48px;
+  }
+  @include media.onMd {
+    font-size: 36px;
+  }
+  @include media.onSm {
+    font-size: 34px;
+  }
+  @include media.onXs {
+    font-size: 28px;
+  }
 }
 
 @mixin h2 {
@@ -79,6 +100,13 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   font-size: 48px;
   line-height: 1.42;
   margin: 0;
+
+  @include media.onXl {
+    font-size: 43px;
+  }
+  @include media.onLg {
+    font-size: 40px;
+  }
 }
 
 @mixin h3 {
@@ -87,6 +115,13 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   font-size: 36px;
   line-height: 1.42;
   margin: 0;
+
+  @include media.onXl {
+    font-size: 34px;
+  }
+  @include media.onLg {
+    font-size: 32px;
+  }
 }
 
 @mixin homeDescP {
@@ -94,26 +129,28 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   font-weight: 300;
   font-size: 16px;
   margin: 0;
-}
 
-@mixin moreLinks {
-  font-family: $SangBleu;
-  font-weight: 300;
-  font-size: 24px;
-  text-decoration: underline;
-  cursor: pointer;
+  @include media.onLg {
+    font-size: 14px;
+  }
 }
 
 @mixin borderLinks {
   font-family: $SangBleu;
   font-weight: 400;
   font-size: 16px;
+
+  @include media.onMd {
+    font-size: 14px;
+  }
 }
 
 @mixin workLeftP {
   font-family: $SangBleu;
   font-weight: 400;
   font-size: 18px;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 @mixin backHomeP {

@@ -7,16 +7,16 @@
 }
 
 @mixin onMd {
-  @media only screen and (max-width: 838px) { @content; }
+  @media only screen and (max-width: 768px) { @content; }
 }
 
 @mixin onLg {
-  @media only screen and (max-width: 1024px) { @content; }
+  @media only screen and (max-width: 992px) { @content; }
 }
 
-@mixin overLg {
-  @media only screen and (min-width: 1025px) { @content; }
-}
+// @mixin overLg {
+//   @media only screen and (min-width: 1025px) { @content; }
+// }
 
 @mixin onXl {
   @media only screen and (max-width: 1200px) { @content; }
