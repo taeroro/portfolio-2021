@@ -1,5 +1,6 @@
 import styles from './workDetail.module.scss'
 import ReactPlayer from 'react-player';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 const WorkDetail = (props) => {
   const {
@@ -156,7 +157,7 @@ const Overview = (props) => {
                   return;
                 }
                 return (
-                  <div className={styles.leftContentWrapper + " row"} key={"ow-" + i}>
+                  <div className={i===0 ? (styles.leftContentWrapper + " row " + styles.firstRow) : (styles.leftContentWrapper + " row")} key={"ow-" + i}>
                     <div className={styles.leftContentL + " col-lg-4"}>
                       {e.name}
                     </div>
@@ -235,7 +236,9 @@ const ContentDetail = (props) => {
   const {
     type,
     media,
-    containsGap
+    containsGap,
+    heading,
+    textContent,
   } = detail
 
   let toDisplay = [];
@@ -257,9 +260,23 @@ const ContentDetail = (props) => {
         <div className={styles.customizedMediaCol + " col-lg-" + data.size}>
           {
             data.mediaLink &&
-            <div className={data.size >= 4 ? styles.videoWrapper : `${styles.videoWrapper} ${styles.vidMobile}`} >
-              <iframe src={data.mediaLink} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
-            </div>
+            <ReactPlayer
+               // className={styles.thumbnailVid}
+               url={data.mediaLink}
+               width={'100%'}
+               height={'100%'}
+               config={{
+                vimeo: {
+                  playerOptions: {
+                    autoplay: true,
+                    loop: true,
+                    responsive: true,
+                    muted: true,
+                    title: false,
+                  }
+                }
+              }}
+             />
           }
           {
             data.media &&
@@ -294,7 +311,107 @@ const ContentDetail = (props) => {
     return toDisplay;
   }
   // media-only type END
+  // text-vertical-stacked type START
+  else if (type === "text-vertical-stacked") {
 
+    return (
+      <div className={styles.textVerticalStackedWrapper + " row"}>
+        <div className="col-lg-1"></div>
+
+        <div className="col-lg-8">
+          <h3>{heading}</h3>
+          <p>{documentToReactComponents(textContent)}</p>
+        </div>
+
+        <div className="col-lg-3"></div>
+      </div>
+    );
+  }
+  // text-vertical-stacked type END
+  // text-horizontal-stacked type START
+  else if (type === "text-horizontal-stacked") {
+
+    toDisplay.push(
+      <div className={styles.textHorizontalStackedWrapper + " row"}>
+        <div className="col-lg-1"></div>
+
+        <div className="col-lg-2">
+          <h3>{heading}</h3>
+        </div>
+
+        <div className="col-lg-6">
+          <p>{documentToReactComponents(textContent)}</p>
+        </div>
+
+        <div className="col-lg-3"></div>
+      </div>
+    );
+
+    let sizeSum = 0;
+
+    media.map((e, i) => {
+      const data = e.fields;
+
+      if (sizeSum === 0 && containsGap) {
+        tempDisplay.push(<div className="col-lg-1"></div>)
+        sizeSum += 1;
+      }
+
+      tempDisplay.push(
+        <div className={styles.customizedMediaCol + " col-lg-" + data.size}>
+          {
+            data.mediaLink &&
+            <ReactPlayer
+               // className={styles.thumbnailVid}
+               url={data.mediaLink}
+               width={'100%'}
+               height={'100%'}
+               config={{
+                vimeo: {
+                  playerOptions: {
+                    autoplay: true,
+                    loop: true,
+                    responsive: true,
+                    muted: true,
+                    title: false,
+                  }
+                }
+              }}
+             />
+          }
+          {
+            data.media &&
+            <img
+              className={data.outline ? styles.outline : ""}
+              src={data.media.fields.file.url}
+              alt={data.media.fields.title}
+              style={data.isContained && {objectFit: "contain"}}
+            />
+          }
+        </div>
+      )
+      sizeSum += parseInt(data.size);
+
+      if (sizeSum === 11 && containsGap) {
+        tempDisplay.push(<div className="col-lg-1"></div>)
+        sizeSum += 1;
+      }
+
+      if (sizeSum === 12) {
+        toDisplay.push(
+          <div className="row" key={"display-" + i} style={{marginBottom: data.spacingBottom + "px"}}>
+            {tempDisplay}
+          </div>
+        )
+        sizeSum = 0;
+        tempDisplay = [];
+      }
+    })
+
+
+    return toDisplay;
+  }
+  // text-horizontal-stacked type END
 
   return (
     <div></div>

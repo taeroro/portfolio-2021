@@ -1,12 +1,46 @@
 @use 'styles/media';
 
+@font-face {
+  font-family: 'SangBleu OG Sans';
+  src: url('/fonts/SangBleuOGSans-Regular.otf') format('otf');
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.SangBleuOGSans-Regular {
+  font-family: 'SangBleu OG Sans';
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
+@font-face {
+  font-family: 'SangBleu OG Sans';
+  src: url('/fonts/SangBleuOGSans-Light.otf') format('otf');
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+.SangBleuOGSans-Light {
+  font-family: 'SangBleu OG Sans';
+  font-weight:  300;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+
 $ProximaNova: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-@mixin subtitle {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
+
+@mixin subtitle {
+  font-family: $SangBleu;
   font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.9px;
@@ -31,10 +65,8 @@ $ProximaNova: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Segoe UI, Robot
 }
 
 @mixin h1 {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
+  font-family: $SangBleu;
+  font-weight: 300;
   // font-size: 64px;
   font-size: 4vw;
   line-height: 1.42;
@@ -42,54 +74,51 @@ $ProximaNova: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Segoe UI, Robot
 }
 
 @mixin h2 {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
+  font-family: $SangBleu;
+  font-weight: 300;
   font-size: 48px;
+  line-height: 1.42;
+  margin: 0;
+}
+
+@mixin h3 {
+  font-family: $SangBleu;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 1.42;
   margin: 0;
 }
 
 @mixin homeDescP {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
+  font-family: $SangBleu;
+  font-weight: 300;
   font-size: 16px;
   margin: 0;
 }
 
 @mixin moreLinks {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
+  font-family: $SangBleu;
+  font-weight: 300;
   font-size: 24px;
   text-decoration: underline;
   cursor: pointer;
 }
 
 @mixin borderLinks {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  font-family: $SangBleu;
   font-weight: 400;
   font-size: 16px;
 }
 
 @mixin workLeftP {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  font-family: $SangBleu;
   font-weight: 400;
   font-size: 18px;
 }
 
 @mixin backHomeP {
-  font-family: "SangBleu OG Sans Trial", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
-  font-weight: 200;
+  font-family: $SangBleu;
+  font-weight: 300;
   font-size: 24px;
   letter-spacing: 1.2px;
 }
