@@ -147,7 +147,7 @@ const Overview = (props) => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row flex-column-reverse flex-lg-row">
           <div className="col-lg-1"></div>
 
           <div className="col-lg-3">
@@ -158,11 +158,11 @@ const Overview = (props) => {
                 }
                 return (
                   <div className={i===0 ? (styles.leftContentWrapper + " row " + styles.firstRow) : (styles.leftContentWrapper + " row")} key={"ow-" + i}>
-                    <div className={styles.leftContentL + " col-lg-4"}>
+                    <div className={styles.leftContentL + " col-lg-4 col-sm-3"}>
                       {e.name}
                     </div>
 
-                    <div className={styles.leftContentR + " col-lg-8"}>
+                    <div className={styles.leftContentR + " col-lg-8 col-sm-3"}>
                       {
                         Array.isArray(e.content)
                         ? e.content.join('\n')
@@ -300,7 +300,7 @@ const ContentDetail = (props) => {
 
       if (sizeSum === 12) {
         toDisplay.push(
-          <div className="row" key={"display-" + i} style={{marginBottom: data.spacingBottom + "px"}}>
+          <div className={styles.customizedMediaRow + " row"} key={"display-" + i} style={{paddingBottom: data.spacingBottom + "px"}}>
             {tempDisplay}
           </div>
         )
@@ -338,11 +338,16 @@ const ContentDetail = (props) => {
         <div className="col-lg-1"></div>
 
         <div className="col-lg-2">
-          <h3>{heading}</h3>
+          { heading &&
+            <h3>{heading}</h3>
+          }
         </div>
 
         <div className="col-lg-6">
-          <p>{documentToReactComponents(textContent)}</p>
+          {
+            textContent &&
+            <p>{documentToReactComponents(textContent)}</p>
+          }
         </div>
 
         <div className="col-lg-3"></div>
@@ -401,7 +406,7 @@ const ContentDetail = (props) => {
 
       if (sizeSum === 12) {
         toDisplay.push(
-          <div className="row" key={"display-" + i} style={{marginBottom: data.spacingBottom + "px"}}>
+          <div className={styles.customizedMediaRow + " row"} key={"display-" + i} style={{paddingBottom: data.spacingBottom + "px"}}>
             {tempDisplay}
           </div>
         )
@@ -436,7 +441,6 @@ const ContentDetail = (props) => {
           {
             data.mediaLink &&
             <ReactPlayer
-               // className={styles.thumbnailVid}
                url={data.mediaLink}
                width={'100%'}
                height={'100%'}
@@ -477,7 +481,7 @@ const ContentDetail = (props) => {
 
       if (sizeSum === 12) {
         toDisplay.push(
-          <div className="row" key={"display-" + i} style={{marginBottom: spacing + "px"}}>
+          <div className={styles.customizedMediaRow + " row"} key={"display-" + i} style={{paddingBottom: spacing + "px"}}>
             {tempDisplay}
           </div>
         )
