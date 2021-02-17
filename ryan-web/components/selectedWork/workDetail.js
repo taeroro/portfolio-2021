@@ -3,18 +3,35 @@ import ReactPlayer from 'react-player';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Link from 'next/link'
 
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
 const WorkDetail = (props) => {
   const {
     workList,
-    slug
+    slug,
+    myDude
   } = props
 
   let work = {};
+  let previousWorkSlug = "/";
+  let nextWorkSlug = "/";
   workList.work.map((e, i) => {
     if (e.fields.slug === slug) {
       work = e.fields
+
+      let pr = mod((i - 1), workList.work.length)
+      let nx = mod((i + 1), workList.work.length)
+
+      previousWorkSlug = "/work/" + workList.work[pr].fields.slug;
+      nextWorkSlug = "/work/" + workList.work[nx].fields.slug;
     }
   })
+
+  const backHomeDudeUrl = myDude.media[2].fields.file.url;
+  const prDudeUrl = myDude.media[3].fields.file.url;
+  const nxDudeUrl = myDude.media[4].fields.file.url;
 
   return (
     <div className={styles.workDetailContainer}>
@@ -39,7 +56,13 @@ const WorkDetail = (props) => {
         work.isRequestedViaEmail &&
         <RequestCase />
       }
-      <BackWithDude />
+      <BackWithDude
+        backImg={backHomeDudeUrl}
+        prSlug={previousWorkSlug}
+        prImg={prDudeUrl}
+        nxSlug={nextWorkSlug}
+        nxImg={nxDudeUrl}
+      />
     </div>
   )
 }
@@ -535,35 +558,55 @@ const RequestCase = () => {
 // ************************
 // REQUEST CASE STUDY BY EMAIL
 // ************************
-const BackWithDude = () => {
+const BackWithDude = (props) => {
+  const {
+    backImg,
+    prSlug,
+    prImg,
+    nxSlug,
+    nxImg,
+  } = props;
+
   return (
     <div className={styles.backWithDudeContainer}>
       <hr className={styles.shortHr} />
 
       <div className="row">
 
-        <div className="col-lg-1"></div>
+        <div className="col-sm-1"></div>
 
-        <div className="col-lg-2">
-          {/* <span>PREVIOUS PROJECT</span> */}
-        </div>
-
-        <div className="col-lg-2"></div>
-
-        <div className="col-lg-2">
-          {/* <span>TAKE ME BACK HOME</span> */}
-          <Link href="/">
-            <span>BACK HOME</span>
+        <div className="col-sm-2">
+          <Link href={prSlug}>
+            <div className={styles.dudeLinkContainer}>
+              <img src={prImg} />
+              <span>PREVIOUS PROJECT</span>
+            </div>
           </Link>
         </div>
 
-        <div className="col-lg-2"></div>
+        <div className="col-sm-2"></div>
 
-        <div className="col-lg-2">
-          {/* <span>NEXT PROJECT</span> */}
+        <div className="col-sm-2">
+          <Link href="/">
+            <div className={styles.dudeLinkContainer}>
+              <img src={backImg} />
+              <span>TAKE ME BACK HOME</span>
+            </div>
+          </Link>
         </div>
 
-        <div className="col-lg-1"></div>
+        <div className="col-sm-2"></div>
+
+        <div className="col-sm-2">
+          <Link href={nxSlug}>
+            <div className={styles.dudeLinkContainer}>
+              <img src={nxImg} />
+              <span>NEXT PROJECT</span>
+            </div>
+          </Link>
+        </div>
+
+        <div className="col-sm-1"></div>
       </div>
     </div>
   );

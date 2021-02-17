@@ -9,7 +9,7 @@ export default function WorkDetailPage ({ workList, myDude, contact }) {
 
   return (
     <Layout contact={contact} myDude={myDude}>
-      <WorkDetail workList={workList} slug={slug} />
+      <WorkDetail workList={workList} slug={slug} myDude={myDude} />
     </Layout>
   );
 }

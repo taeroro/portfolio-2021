@@ -4,11 +4,13 @@ import Filler from './footer/filler'
 import Contact from './footer/contact'
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
+import GoogleAnalytics from './GoogleAnalytics/GoogleAnalytics'
 
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll'
 
 const Layout = ({ contact, myDude, children }) => {
   const router = useRouter()
+  const gaTrackingId = 'UA-131928857-1'
 
   useEffect(() => {
       let scroll = new SmoothScroll('a[href*="#"]', {
@@ -55,6 +57,7 @@ const Layout = ({ contact, myDude, children }) => {
 
       <Contact contact={contact} myDude={myDude} />
 
+      <GoogleAnalytics trackingId={gaTrackingId} />
     </div>
   )
 }
