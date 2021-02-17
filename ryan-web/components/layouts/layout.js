@@ -5,6 +5,7 @@ import Contact from './footer/contact'
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
 import GoogleAnalytics from './GoogleAnalytics/GoogleAnalytics'
+import SEO from './SEO/SEO'
 
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll'
 
@@ -22,6 +23,7 @@ const Layout = ({ contact, myDude, children }) => {
   return (
     <div>
       {/* <SEO meta={meta} /> */}
+      <SEO />
 
       <Head>
         <title>Ryan Fan</title>
