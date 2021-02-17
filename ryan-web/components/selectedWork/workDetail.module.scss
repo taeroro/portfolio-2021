@@ -19,10 +19,35 @@
   margin: 0 -20px;
   padding: 0 0 0 20px;
   position: relative;
+  overflow: hidden;
+
+  @include media.onLg {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+  }
 
   .heightRow {
     height: 100%;
     position: relative;
+
+    .titleContainer {
+      @include media.onLg {
+        // height: 20%;
+        // display: flex;
+        // align-items: flex-end;
+
+        padding-top: calc(69px + 10px);
+        padding-bottom: 10px;
+      }
+    }
+
+    .mediaContainer {
+      @include media.onLg {
+        height: 75vh;
+      }
+    }
   }
 
   div [class*="col"] {

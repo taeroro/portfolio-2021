@@ -57,11 +57,11 @@ const Hero = (props) => {
     <div className={styles.heroContainer}>
 
       <div className={styles.heightRow + " row"}>
-        <div className="col-lg-4 align-self-center">
+        <div className={styles.titleContainer + " col-lg-4 align-self-center"}>
           <h1>{title}</h1>
         </div>
 
-        <div className="col-lg-8">
+        <div className={styles.mediaContainer + " col-lg-8"}>
           {
             thumbnail.contentType.includes("video")
             ? <ReactPlayer
