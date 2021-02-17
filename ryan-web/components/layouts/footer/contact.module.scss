@@ -28,7 +28,7 @@
   }
 
   h2 {
-    @include fonts.h2;
+    @include fonts.contactH2;
     color: colors.$white;
   }
 
@@ -51,6 +51,10 @@
     bottom: 0;
     margin-bottom: 30px;
 
+    @include media.onXs {
+      text-align: center;
+    }
+
     .linkWrapper {
       display: inline-block;
       border: 1px solid colors.$white;
@@ -64,8 +68,12 @@
       }
 
       @include media.onMd {
-        padding: 1px 8px;
+        padding: 1px 8px 2px 8px;
         margin: 0 5px;
+      }
+
+      @include media.onXs {
+        margin: 10px 5px 0 5px;
       }
     }
   }

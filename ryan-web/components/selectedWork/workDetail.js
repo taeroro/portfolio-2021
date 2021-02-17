@@ -1,6 +1,7 @@
 import styles from './workDetail.module.scss'
 import ReactPlayer from 'react-player';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Link from 'next/link'
 
 const WorkDetail = (props) => {
   const {
@@ -544,19 +545,22 @@ const BackWithDude = () => {
         <div className="col-lg-1"></div>
 
         <div className="col-lg-2">
-          <span>PREVIOUS PROJECT</span>
+          {/* <span>PREVIOUS PROJECT</span> */}
         </div>
 
         <div className="col-lg-2"></div>
 
         <div className="col-lg-2">
-          <span>TAKE ME BACK HOME</span>
+          {/* <span>TAKE ME BACK HOME</span> */}
+          <Link href="/">
+            <span>BACK HOME</span>
+          </Link>
         </div>
 
         <div className="col-lg-2"></div>
 
         <div className="col-lg-2">
-          <span>NEXT PROJECT</span>
+          {/* <span>NEXT PROJECT</span> */}
         </div>
 
         <div className="col-lg-1"></div>

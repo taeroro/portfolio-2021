@@ -16,6 +16,10 @@
 
   pointer-events: none;
 
+  @include media.onMd {
+    padding: 20px 20px;
+  }
+
   a {
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
@@ -59,7 +63,7 @@
       }
 
       @include media.onMd {
-        padding: 1px 7px;
+        padding: 1px 7px 2px 7px;
         margin: 0 3px;
       }
     }
