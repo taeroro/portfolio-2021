@@ -140,6 +140,10 @@
       a {
         color: colors.$darkwhite;
       }
+
+      @include media.onSm {
+        bottom: -21px;
+      }
     }
   }
 }

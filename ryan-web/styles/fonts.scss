@@ -181,4 +181,8 @@ $SangBleu: 'SangBleu OG Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Robo
   font-weight: 400;
   font-size: 9px;
   text-rendering: geometricPrecision;
+
+  @include media.onSm {
+    font-size: 7px;
+  }
 }
