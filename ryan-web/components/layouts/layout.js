@@ -9,6 +9,7 @@ import SEO from './SEO/SEO'
 
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll'
 
+
 const Layout = ({ contact, myDude, children }) => {
   const router = useRouter()
   const gaTrackingId = 'UA-131928857-1'
@@ -31,6 +32,34 @@ const Layout = ({ contact, myDude, children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/dqj0nwi.css" />
+        <link
+          rel="preload"
+          href="/fonts/SangBleuOGSans-Regular-WebXL.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/SangBleuOGSans-Regular-WebXL.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/SangBleuOGSans-Light-WebXL.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/SangBleuOGSans-Light-WebXL.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
       </Head>
 
       <div style={{
