@@ -11,13 +11,25 @@ const Contact = (props) => {
     myDude
   } = props
 
-  const normalDudeUrl = myDude.media[1].fields.file.url;
+  // const normalDudeUrl = myDude.media[1].fields.file.url;
+
+  const dude0Url = myDude.media[6].fields.file.url;
+  const dude1Url = myDude.media[8].fields.file.url;
+
+  const dudeAnimateUrl = myDude.media[9].fields.file.url;
 
   return (
     <div className={styles.contactContainer}>
 
       <div className={styles.topWrapper}>
-        <img src={normalDudeUrl} />
+        {/* <div className={styles.dudeWrapper}>
+          <img src={dude0Url} className={styles.dudeBottom} />
+          <img src={dude1Url} className={styles.dudeTop} />
+        </div> */}
+        <div className={styles.dudeAnimateWrapper} style={{
+          backgroundImage: `url(${dudeAnimateUrl})`
+        }}>
+        </div>
         <h2>{name}</h2>
         <div className={styles.emailLinkWrapper}>
           <h2><a href={"mailto:" + email}>{email}</a></h2>

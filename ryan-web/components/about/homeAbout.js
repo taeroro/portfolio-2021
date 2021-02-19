@@ -7,7 +7,10 @@ const HomeAbout = (props) => {
     myDude
   } = props
 
-  let normalDudeUrl = myDude.media[0].fields.file.url;
+  // let normalDudeUrl = myDude.media[0].fields.file.url;
+
+  const dude0Url = myDude.media[5].fields.file.url;
+  const dude1Url = myDude.media[7].fields.file.url;
 
   return (
     <div className={styles.aboutContainer}>
@@ -21,7 +24,11 @@ const HomeAbout = (props) => {
 
         <div className="col-lg-3">
           <div className={styles.dudeContainer}>
-            <img src={normalDudeUrl} />
+            {/* <img src={normalDudeUrl} /> */}
+            <div className={styles.dudeWrapper}>
+              <img src={dude0Url} className={styles.dudeBottom} />
+              <img src={dude1Url} className={styles.dudeTop} />
+            </div>
           </div>
         </div>
       </div>

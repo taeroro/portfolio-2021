@@ -16,16 +16,65 @@
   background-color: colors.$black;
 
   .topWrapper {
-    text-align: center;
+    // text-align: center;
     padding-bottom: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .dudeWrapper {
+      position: relative;
+      .dudeTop {
+        display: none;
+      }
+      .dudeBottom {
+
+      }
+    }
+
+    .dudeWrapper:hover .dudeTop {
+      display: inline;
+    }
+
+    .dudeWrapper:hover .dudeBottom {
+      display: none;
+    }
+
+    .dudeAnimateWrapper {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 20px;
+      // width: 100%;
+      // height: auto;
+
+      background-size: 500%, 100%;
+      background-position: left;
+      background-repeat: no-repeat;
+
+      animation-name: dudeWave;
+      animation-duration: 1s;
+      animation-timing-function: steps(4);
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes dudeWave {
+      from {
+        background-position: left;
+      }
+      to {
+        background-position: right;
+      }
+    }
+
   }
 
-  img {
-    width: 160px;
-    height: 160px;
-
-    margin-bottom: 20px;
-  }
+  // img {
+  //   width: 160px;
+  //   height: 160px;
+  //
+  //   margin-bottom: 20px;
+  // }
 
   h2 {
     @include fonts.contactH2;

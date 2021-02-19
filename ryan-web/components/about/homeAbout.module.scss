@@ -17,10 +17,29 @@
   justify-content: center;
   align-items: flex-start;
 
+  .dudeWrapper {
+    position: relative;
+    .dudeTop {
+      display: none;
+    }
+  }
+
+  .dudeWrapper:hover .dudeTop {
+    display: inline;
+  }
+
+  .dudeWrapper:hover .dudeBottom {
+    display: none;
+  }
+
   img {
     max-width: 250px;
     max-height: 250px;
     width: 100%;
     height: auto;
+  }
+
+  @include media.onSm {
+    margin-top: 10px;
   }
 }
