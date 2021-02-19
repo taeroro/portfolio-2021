@@ -40,6 +40,8 @@ const Contact = (props) => {
             );
           })
         }
+
+        <div className={styles.cc}>Person Icons by Valerie Lamm from <a href="http://thenounproject.com/">the Noun Project</a></div>
       </div>
     </div>
   )
