@@ -30,7 +30,7 @@ const Layout = ({ contact, myDude, children }) => {
       tl.to(overlayRef.current, {
         delay: 0.25,
         duration: 0.6,
-        transform: "translateY(-100%)",
+        yPercent: -100,
         // ease: "cubic-bezier(0.215, 0.61, 0.355, 1)"
         // ease: "cubic-bezier(.17,.67,.83,.67)"
         ease: "cubic-bezier(.25,.75,.5,1.25)",
