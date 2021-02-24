@@ -2,23 +2,50 @@ import Head from 'next/head'
 import Nav from './nav/nav'
 import Filler from './footer/filler'
 import Contact from './footer/contact'
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from 'next/router'
 import GoogleAnalytics from './GoogleAnalytics/GoogleAnalytics'
 import SEO from './SEO/SEO'
 
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll'
+import gsap from "gsap"
 
 
 const Layout = ({ contact, myDude, children }) => {
   const router = useRouter()
   const gaTrackingId = 'UA-131928857-1'
 
+  const tl = gsap.timeline();
+  let overlayRef = useRef(null);
+  let overlayOpacityRef = useRef(null);
+
+  // MOUNT
   useEffect(() => {
       let scroll = new SmoothScroll('a[href*="#"]', {
         speed: 300,
         easing: 'easeInOutQuart',
       });
+
+      tl.set(overlayRef.current, {display: "block"});
+      tl.to(overlayRef.current, {
+        delay: 0.25,
+        duration: 0.6,
+        transform: "translateY(-100%)",
+        // ease: "cubic-bezier(0.215, 0.61, 0.355, 1)"
+        // ease: "cubic-bezier(.17,.67,.83,.67)"
+        ease: "cubic-bezier(.25,.75,.5,1.25)",
+      });
+      tl.set(overlayRef.current, {display: "none"});
+      tl.set(overlayOpacityRef.current, {display: "block"});
+      tl.to(overlayOpacityRef.current, {
+        delay: -0.2,
+        duration: 0.6,
+        opacity: 0,
+        ease: "cubic-bezier(0.215, 0.61, 0.355, 1)"
+        // ease: "cubic-bezier(.17,.67,.83,.67)"
+        // ease: "cubic-bezier(.25,.75,.5,1.25)",
+      });
+      tl.set(overlayOpacityRef.current, {display: "none"});
     });
 
   return (
@@ -61,6 +88,9 @@ const Layout = ({ contact, myDude, children }) => {
           crossOrigin="anonymous"
         />
       </Head>
+
+      <div className="site-transition-overlay" ref={overlayRef}></div>
+      <div className="site-transition-overlay-opacity" ref={overlayOpacityRef}></div>
 
       <div style={{
         backgroundColor: "#F9f9f9",
